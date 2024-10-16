@@ -1,4 +1,6 @@
+import react from '@astrojs/react'
 import type { StarlightPlugin, StarlightUserConfig } from '@astrojs/starlight/types'
+import tailwind from '@astrojs/tailwind'
 
 import {
   StarlightMultipleSidebarDropdownConfigSchema,
@@ -25,7 +27,7 @@ export default function starlightMultipleSidebarDropdownPlugin(
   return {
     name: 'starlight-multiple-sidebar-dropdown-plugin',
     hooks: {
-      setup({ addIntegration, command, config: starlightConfig, logger, updateConfig }) {
+      setup({ addIntegration, command, config: starlightConfig, logger, updateConfig, astroConfig }) {
         if (command !== 'dev' && command !== 'build') return
 
         if (starlightConfig.sidebar) {
@@ -59,6 +61,18 @@ export default function starlightMultipleSidebarDropdownPlugin(
             },
           },
         })
+
+        const isReactLoaded = astroConfig.integrations.find(({ name }) => name === '@astrojs/react')
+
+        if (!isReactLoaded) {
+          addIntegration(react())
+        }
+
+        addIntegration(
+          tailwind({
+            applyBaseStyles: false,
+          }),
+        )
       },
     },
   }
