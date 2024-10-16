@@ -1,17 +1,17 @@
 // @ts-check
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config'
-import starlightSidebarTopics from 'starlight-sidebar-topics'
+import starlightMultipleSidebarDropdown from 'starlight-multiple-sidebar-dropdown'
 
 export default defineConfig({
   integrations: [
     starlight({
       customCss: ['./src/styles/custom.css'],
       editLink: {
-        baseUrl: 'https://github.com/HiDeoo/starlight-sidebar-topics/edit/main/docs/',
+        baseUrl: 'https://github.com/trueberryless-org/starlight-multiple-sidebar-dropdown/edit/main/docs/',
       },
       plugins: [
-        starlightSidebarTopics([
+        starlightMultipleSidebarDropdown([
           {
             label: 'Documentation',
             link: '/docs/getting-started/',
@@ -49,9 +49,9 @@ export default defineConfig({
         ]),
       ],
       social: {
-        github: 'https://github.com/HiDeoo/starlight-sidebar-topics',
+        github: 'https://github.com/trueberryless-org/starlight-multiple-sidebar-dropdown',
       },
-      title: 'Starlight Sidebar Topics',
+      title: 'Starlight Multiple Sidebar Dropdown',
       locales:
         process.env['NODE_ENV'] === 'test'
           ? {
@@ -61,5 +61,5 @@ export default defineConfig({
           : undefined,
     }),
   ],
-  site: 'https://starlight-sidebar-topics.netlify.app',
+  site: 'https://starlight-multiple-sidebar-dropdown.trueberryless.org',
 })

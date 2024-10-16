@@ -24,9 +24,9 @@ import { PackageManagers } from '@hideoo/starlight-plugins-docs-components'
 
 <Steps>
 
-1. Starlight Sidebar Topics is a Starlight [plugin](https://starlight.astro.build/reference/plugins/). Install it using your favorite package manager:
+1. Starlight Multiple Sidebar Dropdown is a Starlight [plugin](https://starlight.astro.build/reference/plugins/). Install it using your favorite package manager:
 
-   <PackageManagers pkg="starlight-sidebar-topics" />
+   <PackageManagers pkg="starlight-multiple-sidebar-dropdown" />
 
 2. Configure the plugin in your Starlight [configuration](https://starlight.astro.build/reference/configuration/#plugins) in the `astro.config.mjs` file by specifying an array of topics each with its own sidebar configuration.
 
@@ -37,13 +37,13 @@ import { PackageManagers } from '@hideoo/starlight-plugins-docs-components'
    // @ts-check
    import starlight from '@astrojs/starlight'
    import { defineConfig } from 'astro/config'
-   +import starlightSidebarTopics from 'starlight-sidebar-topics'
+   +import starlightMultipleSidebarDropdown from 'starlight-multiple-sidebar-dropdown'
 
    export default defineConfig({
      integrations: [
        starlight({
    +      plugins: [
-   +        starlightSidebarTopics([
+   +        starlightMultipleSidebarDropdown([
    +          {
    +            label: 'Guides',
    +            link: '/guides/',
@@ -78,4 +78,4 @@ import { PackageManagers } from '@hideoo/starlight-plugins-docs-components'
 
 </Steps>
 
-The Starlight Sidebar Topics plugin behavior can be tweaked using various [topic configuration options](/docs/configuration/#topic-configuration).
+The Starlight Multiple Sidebar Dropdown plugin behavior can be tweaked using various [topic configuration options](/docs/configuration/#topic-configuration).
