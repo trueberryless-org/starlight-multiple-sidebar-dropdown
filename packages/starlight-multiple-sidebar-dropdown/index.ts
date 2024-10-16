@@ -1,13 +1,18 @@
 import type { StarlightPlugin, StarlightUserConfig } from '@astrojs/starlight/types'
 
-import { StarlightSidebarTopicsConfigSchema, type StarlightSidebarTopicsUserConfig } from './libs/config'
+import {
+  StarlightMultipleSidebarDropdownConfigSchema,
+  type StarlightMultipleSidebarDropdownUserConfig,
+} from './libs/config'
 import { overrideStarlightComponent, throwPluginError } from './libs/plugin'
-import { vitePluginStarlightSidebarTopics } from './libs/vite'
+import { vitePluginStarlightMultipleSidebarDropdown } from './libs/vite'
 
-export type { StarlightSidebarTopicsConfig, StarlightSidebarTopicsUserConfig } from './libs/config'
+export type { StarlightMultipleSidebarDropdownConfig, StarlightMultipleSidebarDropdownUserConfig } from './libs/config'
 
-export default function starlightSidebarTopicsPlugin(userConfig: StarlightSidebarTopicsUserConfig): StarlightPlugin {
-  const parsedConfig = StarlightSidebarTopicsConfigSchema.safeParse(userConfig)
+export default function starlightMultipleSidebarDropdownPlugin(
+  userConfig: StarlightMultipleSidebarDropdownUserConfig,
+): StarlightPlugin {
+  const parsedConfig = StarlightMultipleSidebarDropdownConfigSchema.safeParse(userConfig)
 
   if (!parsedConfig.success) {
     throwPluginError(
@@ -18,15 +23,15 @@ export default function starlightSidebarTopicsPlugin(userConfig: StarlightSideba
   const config = parsedConfig.data
 
   return {
-    name: 'starlight-sidebar-topics-plugin',
+    name: 'starlight-multiple-sidebar-dropdown-plugin',
     hooks: {
       setup({ addIntegration, command, config: starlightConfig, logger, updateConfig }) {
         if (command !== 'dev' && command !== 'build') return
 
         if (starlightConfig.sidebar) {
           throwPluginError(
-            'It looks like you have a `sidebar` configured in your Starlight configuration. To use `starlight-sidebar-topics`, create a new topic with your sidebar items.',
-            'Learn more about topic configuration at https://starlight-sidebar-topics.netlify.app/docs/configuration/',
+            'It looks like you have a `sidebar` configured in your Starlight configuration. To use `starlight-multiple-sidebar-dropdown`, create a new topic with your sidebar items.',
+            'Learn more about topic configuration at https://starlight-multiple-sidebar-dropdown.netlify.app/docs/configuration/',
           )
         }
 
@@ -47,10 +52,10 @@ export default function starlightSidebarTopicsPlugin(userConfig: StarlightSideba
         })
 
         addIntegration({
-          name: 'starlight-sidebar-topics-integration',
+          name: 'starlight-multiple-sidebar-dropdown-integration',
           hooks: {
             'astro:config:setup': ({ updateConfig }) => {
-              updateConfig({ vite: { plugins: [vitePluginStarlightSidebarTopics(config)] } })
+              updateConfig({ vite: { plugins: [vitePluginStarlightMultipleSidebarDropdown(config)] } })
             },
           },
         })

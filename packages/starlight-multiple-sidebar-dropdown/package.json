@@ -1,5 +1,5 @@
 {
-  "name": "starlight-sidebar-topics",
+  "name": "starlight-multiple-sidebar-dropdown",
   "version": "0.1.0",
   "license": "MIT",
   "description": "Starlight plugin to split your documentation into different sections, each with its own sidebar.",
@@ -34,16 +34,17 @@
     "starlight",
     "plugin",
     "sidebar",
-    "topics",
+    "subpages",
     "sections",
+    "dropdown",
     "documentation",
     "astro"
   ],
-  "homepage": "https://github.com/HiDeoo/starlight-sidebar-topics",
+  "homepage": "https://github.com/HiDeoo/starlight-multiple-sidebar-dropdown",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HiDeoo/starlight-sidebar-topics.git",
-    "directory": "packages/starlight-sidebar-topics"
+    "url": "https://github.com/HiDeoo/starlight-multiple-sidebar-dropdown.git",
+    "directory": "packages/starlight-multiple-sidebar-dropdown"
   },
-  "bugs": "https://github.com/HiDeoo/starlight-sidebar-topics/issues"
+  "bugs": "https://github.com/HiDeoo/starlight-multiple-sidebar-dropdown/issues"
 }

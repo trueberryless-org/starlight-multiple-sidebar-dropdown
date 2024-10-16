@@ -28,7 +28,7 @@ export class BasePage {
   }
 
   async getCurrentTopic() {
-    const locators = await this.#topicsList.locator('li .starlight-sidebar-topics-current').all()
+    const locators = await this.#topicsList.locator('li .starlight-multiple-sidebar-dropdown-current').all()
 
     if (locators.length !== 1) {
       throw new Error(`Expected 1 current topic, found ${locators.length}.`)

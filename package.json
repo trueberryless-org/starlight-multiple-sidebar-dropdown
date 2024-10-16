@@ -1,9 +1,9 @@
 {
-  "name": "starlight-sidebar-topics-monorepo",
+  "name": "starlight-multiple-sidebar-dropdown-monorepo",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "Starlight plugin to split your documentation into different sections, each with its own sidebar.",
-  "author": "HiDeoo <github@hideoo.dev> (https://hideoo.dev)",
+  "description": "Starlight plugin to split your docs page into multiple subpages and switch between them with a dropdown menu in the sidebar.",
+  "author": "trueberryless (https://trueberryless.org)",
   "type": "module",
   "scripts": {
     "test": "pnpm --stream -r test",
@@ -31,17 +31,18 @@
     "starlight",
     "plugin",
     "sidebar",
-    "topics",
+    "subpages",
     "sections",
+    "dropdown",
     "documentation",
     "astro"
   ],
-  "homepage": "https://github.com/HiDeoo/starlight-sidebar-topics",
+  "homepage": "https://github.com/trueberryless-org/starlight-multiple-sidebar-dropdown",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HiDeoo/starlight-sidebar-topics.git"
+    "url": "https://github.com/HiDeoo/starlight-multiple-sidebar-dropdown.git"
   },
-  "bugs": "https://github.com/HiDeoo/starlight-sidebar-topics/issues",
+  "bugs": "https://github.com/HiDeoo/starlight-multiple-sidebar-dropdown/issues",
   "lint-staged": {
     "*": [
       "prettier -w -u --cache",

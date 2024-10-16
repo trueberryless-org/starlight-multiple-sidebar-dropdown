@@ -50,12 +50,14 @@ const sidebarTopicGroupSchema = sidebarTopicBaseSchema.extend({
   items: z.any().array() as z.Schema<NonNullable<StarlightUserConfig['sidebar']>>,
 })
 
-export const StarlightSidebarTopicsConfigSchema = z.union([sidebarTopicGroupSchema, sidebarTopicLinkSchema]).array()
+export const StarlightMultipleSidebarDropdownConfigSchema = z
+  .union([sidebarTopicGroupSchema, sidebarTopicLinkSchema])
+  .array()
 
-export type StarlightSidebarTopicsUserConfig = z.input<typeof StarlightSidebarTopicsConfigSchema>
-export type StarlightSidebarTopicsConfig = z.output<typeof StarlightSidebarTopicsConfigSchema>
+export type StarlightMultipleSidebarDropdownUserConfig = z.input<typeof StarlightMultipleSidebarDropdownConfigSchema>
+export type StarlightMultipleSidebarDropdownConfig = z.output<typeof StarlightMultipleSidebarDropdownConfigSchema>
 
-export type StarlightSidebarTopicsSharedConfig = (
+export type StarlightMultipleSidebarDropdownSharedConfig = (
   | (z.output<typeof sidebarTopicLinkSchema> & { type: 'link' })
   | (Omit<z.output<typeof sidebarTopicGroupSchema>, 'items'> & { type: 'group' })
 )[]

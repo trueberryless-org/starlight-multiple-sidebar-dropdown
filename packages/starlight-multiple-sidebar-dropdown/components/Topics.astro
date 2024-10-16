@@ -4,12 +4,12 @@ import { AstroError } from 'astro/errors'
 import type { ComponentProps } from 'astro/types'
 import { getRelativeLocaleUrl } from 'astro:i18n'
 import starlightConfig from 'virtual:starlight/user-config'
-import config from 'virtual:starlight-sidebar-topics/config'
+import config from 'virtual:starlight-multiple-sidebar-dropdown/config'
 
-import type { StarlightSidebarTopicsSharedConfig } from '../libs/config'
+import type { StarlightMultipleSidebarDropdownSharedConfig } from '../libs/config'
 
 interface Props {
-  current: StarlightSidebarTopicsSharedConfig[number]
+  current: StarlightMultipleSidebarDropdownSharedConfig[number]
 }
 
 const { current } = Astro.props
@@ -48,9 +48,9 @@ function getTranslation(translations: Record<string, string>, link: string, desc
 
       return (
         <li>
-          <a href={link} class:list={{ 'starlight-sidebar-topics-current': isCurrent }}>
+          <a href={link} class:list={{ 'starlight-multiple-sidebar-dropdown-current': isCurrent }}>
             {topic.icon && (
-              <div class="starlight-sidebar-topics-icon">
+              <div class="starlight-multiple-sidebar-dropdown-icon">
                 <Icon name={topic.icon as ComponentProps<typeof Icon>['name']} />
               </div>
             )}
@@ -58,7 +58,7 @@ function getTranslation(translations: Record<string, string>, link: string, desc
               {label}
               {topic.badge && (
                 <Badge
-                  class="starlight-sidebar-topics-badge"
+                  class="starlight-multiple-sidebar-dropdown-badge"
                   text={
                     typeof topic.badge.text === 'string'
                       ? topic.badge.text
@@ -109,15 +109,15 @@ function getTranslation(translations: Record<string, string>, link: string, desc
     text-decoration: none;
   }
 
-  a:is(.starlight-sidebar-topics-current, :hover, :focus-visible) {
+  a:is(.starlight-multiple-sidebar-dropdown-current, :hover, :focus-visible) {
     color: var(--sl-color-accent-high);
   }
 
-  :global([data-theme='light']) a.starlight-sidebar-topics-current {
+  :global([data-theme='light']) a.starlight-multiple-sidebar-dropdown-current {
     color: var(--sl-color-accent);
   }
 
-  .starlight-sidebar-topics-icon {
+  .starlight-multiple-sidebar-dropdown-icon {
     align-items: center;
     border-radius: 0.25rem;
     border: 1px solid var(--sl-color-gray-4);
@@ -127,13 +127,13 @@ function getTranslation(translations: Record<string, string>, link: string, desc
     padding: 0.25rem;
   }
 
-  a:is(.starlight-sidebar-topics-current, :hover, :focus-visible) .starlight-sidebar-topics-icon {
+  a:is(.starlight-multiple-sidebar-dropdown-current, :hover, :focus-visible) .starlight-multiple-sidebar-dropdown-icon {
     background-color: var(--sl-color-text-accent);
     border-color: var(--sl-color-text-accent);
     color: var(--sl-color-text-invert);
   }
 
-  .starlight-sidebar-topics-badge {
+  .starlight-multiple-sidebar-dropdown-badge {
     margin-inline-start: 0.25em;
   }
 </style>

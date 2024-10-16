@@ -1,13 +1,13 @@
 import type { Props } from '@astrojs/starlight/props'
 
-import type { StarlightSidebarTopicsSharedConfig } from './config'
+import type { StarlightMultipleSidebarDropdownSharedConfig } from './config'
 import { getLocaleFromSlug, getLocalizedSlug } from './i18n'
 import { arePathnamesEqual, stripLeadingAndTrailingSlashes } from './pathname'
 
 const absoluteLinkRegex = /^https?:\/\//
 
 export function getCurrentTopic(
-  config: StarlightSidebarTopicsSharedConfig,
+  config: StarlightMultipleSidebarDropdownSharedConfig,
   sidebar: SidebarEntry[],
   currentSlug: string,
 ): Topic | undefined {
@@ -62,7 +62,7 @@ function getSidebarLastPage(sidebar: SidebarEntry[]) {
 }
 
 function getTopicFromSlug(
-  config: StarlightSidebarTopicsSharedConfig,
+  config: StarlightMultipleSidebarDropdownSharedConfig,
   sidebar: SidebarEntry[],
   slug: string,
 ): Topic | undefined {
@@ -132,6 +132,6 @@ interface SidebarTopic {
 }
 
 interface Topic {
-  config: StarlightSidebarTopicsSharedConfig[number]
+  config: StarlightMultipleSidebarDropdownSharedConfig[number]
   sidebar: SidebarEntry[]
 }
