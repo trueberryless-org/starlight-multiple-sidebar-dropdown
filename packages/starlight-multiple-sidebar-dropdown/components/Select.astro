@@ -1,5 +1,5 @@
 ---
-import { Icon } from '@astrojs/starlight/components'
+import { Icon, Badge } from '@astrojs/starlight/components'
 
 interface Props {
   label: string
@@ -10,6 +10,10 @@ interface Props {
     label: string
     value: string
     icon: Parameters<typeof Icon>[0]['name']
+    badge?: {
+      text: string
+      variant: 'default' | 'success' | 'danger' | 'note' | 'caution' | 'tip' | undefined
+    }
     selected: boolean
   }>
 }
@@ -20,15 +24,15 @@ interface Props {
   <Icon name={Astro.props.icon} class="icon label-icon" />
   <select value={Astro.props.value}>
     {
-      Astro.props.options.map(({ value, selected, label }) => (
-        <option value={value} selected={selected} set:html={label} />
+      Astro.props.options.map(({ value, selected, label, icon, badge }) => (
+        <option value={value} selected={selected}>
+          <Icon name={icon} class="icon label-icon" />
+          {label}
+          {badge && <Badge text={badge.text} variant={badge.variant} />}
+        </option>
       ))
     }
   </select>
-  <!-- <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;" class="icon">
-    <Icon name="up-caret" class="caret" />
-    <Icon name="down-caret" class="caret" />
-  </div> -->
   <svg
     width="15"
     height="15"
