@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>starlight-sidebar-topics 🧩</h1>
-  <p>Starlight plugin to split your documentation into different sections, each with its own sidebar.</p>
+  <h1>starlight-multiple-sidebar-dropdown 🔽</h1>
+  <p>Combination of @HiDeoo's <a href="https://github.com/HiDeoo/starlight-sidebar-topics">starlight-sidebar-topics</a> and @lorenzolewis' <a href="https://github.com/lorenzolewis/starlight-utils">starlight-utils</a> plugins.</p>
 </div>
 
 <div align="center">
