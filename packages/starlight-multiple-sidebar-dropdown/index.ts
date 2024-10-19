@@ -70,7 +70,7 @@ export default function starlightMultipleSidebarDropdownPlugin(
 
         addIntegration(
           tailwind({
-            applyBaseStyles: false,
+            applyBaseStyles: true,
           }),
         )
       },
