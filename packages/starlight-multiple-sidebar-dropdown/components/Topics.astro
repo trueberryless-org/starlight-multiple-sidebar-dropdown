@@ -81,7 +81,7 @@ function getTranslation(translations: Record<string, string>, link: string, desc
 </ul>
 
 <Select
-  defaultValue={current.link}
+  defaultValue={current.label}
   onValueChange={(value: string | Record<string, string>) => {
     const selectedTopic = config.find((topic) => topic.label === value)
     if (selectedTopic) {
@@ -119,7 +119,7 @@ function getTranslation(translations: Record<string, string>, link: string, desc
   <SelectContent>
     {
       config.map((topic) => (
-        <SelectItem key={topic.link} value={topic.label}>
+        <SelectItem key={topic.label} value={topic.label}>
           <div className="flex items-center gap-3 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0 [&_svg]:text-foreground">
             <Icon name={topic.icon as ComponentProps<typeof Icon>['name']} />
             {typeof topic.label === 'string' ? topic.label : getTranslation(topic.label, topic.link, 'topic label')}
